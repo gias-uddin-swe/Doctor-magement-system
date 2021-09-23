@@ -1,0 +1,25 @@
+.top-header{
+    background-image:url(https://maxemhealthurgentcare.com/wp-content/uploads/2020/02/Nurse.jpeg),linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+   height:600px;
+   width: 100%;
+   /* border: 1px solid red; */
+   background-blend-mode: overlay;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   position: relative;
+
+}
+.header{
+color: white;
+font-weight: bold;
+}
+.mini-header{
+color: cyan;
+}
+.main-heading{
+    position: absolute;
+    top: 30%;
+    left: 19%;
+}
+

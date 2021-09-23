@@ -1,0 +1,31 @@
+.doctor-login img{
+    width:100%;
+}
+.doctor-login-main{
+    margin-top:0px;
+}
+.input-field{
+    padding: 10px;
+    width: 350px;
+    margin: 10px;
+    border: none ;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+.input-field:hover{
+    border: 1px solid cyan;
+}
+.submit-btn{
+    width: 250px;
+    padding: 10px;
+    margin-top:20px;
+    background-color: #FF2442;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.loginRegistration{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}

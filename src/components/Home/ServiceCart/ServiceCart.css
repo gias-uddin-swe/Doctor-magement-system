@@ -1,0 +1,16 @@
+.service-cart{
+    width: 350px;
+    height: 300px;
+    background-color:rgb(192, 192, 236);
+    margin: auto;
+    text-align: center;
+    /* position: relative; */
+    top: 50%;
+    margin-top: -100px;
+    z-index: 1;
+    border-radius: 5px;
+}
+.services{
+    width: 85%;
+    margin: auto;
+}
