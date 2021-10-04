@@ -5,12 +5,17 @@
     margin: auto;
     text-align: center;
     /* position: relative; */
-    top: 50%;
+    /* top: 50%; */
     margin-top: -100px;
-    z-index: 1;
+    margin-left: 5px;
     border-radius: 5px;
+    margin-bottom: 120px;
+    /* border: 1px solid red; */
 }
 .services{
     width: 85%;
     margin: auto;
+}
+.main-service-cart{
+    z-index: 1;
 }

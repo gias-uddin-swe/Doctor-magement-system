@@ -1,0 +1,10 @@
+.doctor-carousel-image{
+    width: 300px;
+}
+.doctor-carousel-container{
+    width: 70%;
+    margin: auto;
+    padding:60px;
+    background-color:rgb(202, 199, 199);
+    margin-top: 100px;
+}

@@ -1,0 +1,15 @@
+.problem {
+  background-color: rgb(73, 75, 75);
+  padding: 20px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.problem:hover {
+  background-color: rgb(252, 30, 30);
+  color: white;
+}
+.problems {
+  text-decoration: none;
+}
