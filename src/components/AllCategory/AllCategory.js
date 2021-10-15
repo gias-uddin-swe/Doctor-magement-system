@@ -1,30 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./AllCategory.css";
 import Footer from "./../Home/Footer/Footer";
 import { Link } from "react-router-dom";
 
 const AllCategory = () => {
-  const problems = [
-    {
-      title: "হৃদরোগ  সমস্যা",
-    },
-    {
-      title: "হৃদরোগ  সমস্যা",
-    },
-    {
-      title: "হৃদরোগ  সমস্যা",
-    },
-    {
-      title: "হৃদরোগ  সমস্যা",
-    },
-    {
-      title: "হৃদরোগ  সমস্যা",
-    },
-    {
-      title: "হৃদরোগ  সমস্যা",
-    },
-  ];
-  const handleCategory = () => {};
+  const [problems, setProblmes] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allCategory")
+      .then((response) => response.json())
+      .then((result) => setProblmes(result));
+  }, []);
+
   return (
     <div>
       <div className="container mt-5">
@@ -33,14 +20,17 @@ const AllCategory = () => {
         </h1>
         <div className="row  mt-5 d-flex align-items-center justify-content-center">
           {problems.map((problem) => (
-            <div className="col-md-4 col-lg-3 col-sm-12   p-3">
+            <div
+              key={problem._id}
+              className="col-md-4 col-lg-3 col-sm-12   p-3"
+            >
               <Link
-                to={`/appointmentArea/${problem.title}`}
+                to={`/activeDoctor/${problem.category}`}
                 className="problems "
               >
                 <div className="">
                   <div className="problem text-center text-white">
-                    <h4>{problem.title}</h4>
+                    <h5>{problem.category}</h5>
                   </div>
                 </div>
               </Link>

@@ -1,50 +1,102 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AdminDashboard.css";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
+import AppointmentsList from "../../AppointmentsList/AppointmentsList";
+import ApporvedAppointments from "../../Doctor/ApporvedAppointments/ApporvedAppointments";
+import DoneAppointments from "../../DoneAppointments/DoneAppointments";
+import DoctorRegister from "../../Doctor/DoctorRegister/DoctorRegister";
+import AllDoctors from "../AllDoctors/AllDoctors";
+import ManageCategory from "../ManageCategory/ManageCategory";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import AllCustomer from "./../../Custumar/AllCustomer/AllCustomer";
+import MakeBloodDonar from "./../../../Doner/MakeBloodDonar";
+import BloodDoner from "../../../Doner/BloodDoner";
+import AmbulanceRegister from "./../../../AmbulanceService/AmbulanceRegister";
+import AmbulanceService from "./../../../AmbulanceService/AmbulanceService";
 
 const AdminDashboard = () => {
+  const [control, setControl] = useState("pending");
   return (
     <div className="dashboard d-flex text-center">
-      {/* <div className="row">
-        <div className="col-md-2">
-          <div className="dashboard"></div>
-        </div>
-        <div className="col-md-10"></div>
-      </div> */}
       <ProSidebar>
         <Menu iconShape="square">
-          <MenuItem>Dashboard</MenuItem>
+          <MenuItem>Admin Dashboard</MenuItem>
 
           <SubMenu title="All Appointments" icon={"s"}>
-            <MenuItem>Appointments list</MenuItem>
-            <MenuItem>Component 2</MenuItem>
+            <MenuItem onClick={() => setControl("pending")}>
+              Pending Appointments
+            </MenuItem>
+            <MenuItem onClick={() => setControl("done")}>
+              Done Appointments
+            </MenuItem>
+            <MenuItem onClick={() => setControl("approved")}>
+              Approved Appointments
+            </MenuItem>
           </SubMenu>
-         
+
           <SubMenu title="Manage Doctors" icon={"g"}>
-            <MenuItem>All Doctors</MenuItem>
-            <MenuItem>Make a Doctor</MenuItem>
+            <MenuItem onClick={() => setControl("doctors")}>
+              All Doctors
+            </MenuItem>
+            <MenuItem onClick={() => setControl("makeDoctor")}>
+              Make a Doctor
+            </MenuItem>
             <MenuItem>Monitoring Doctors</MenuItem>
+            <MenuItem>Manage Doctors Info</MenuItem>
           </SubMenu>
           <SubMenu title="Manage Customer" icon={"g"}>
-            <MenuItem>All Customer</MenuItem>
+            <MenuItem onClick={() => setControl("allCustomers")}>
+              All Customer
+            </MenuItem>
             <MenuItem>Customer Carts</MenuItem>
             <MenuItem>Monitoring Customer</MenuItem>
             <MenuItem>Customer Payment History</MenuItem>
           </SubMenu>
           <SubMenu title="Ambulance  Service" icon={"g"}>
-            <MenuItem>Ambulance Driver Info</MenuItem>
-            <MenuItem></MenuItem>
-            <MenuItem>Monitoring Driver</MenuItem>
+            <MenuItem onClick={() => setControl("AmbulanceRegister")}>
+              Ambulance Register
+            </MenuItem>
+
+            <MenuItem onClick={() => setControl("AmbulanceList")}>
+              Ambulance List
+            </MenuItem>
             <MenuItem>Customer Payment History</MenuItem>
           </SubMenu>
-          
-          <MenuItem icon={"g"}>Create Admin</MenuItem>
-         
-          <MenuItem icon={"g"}>Blood Donar list</MenuItem>
+
+          <MenuItem onClick={() => setControl("makeAdmin")} icon={"g"}>
+            Create Admin
+          </MenuItem>
+          <MenuItem onClick={() => setControl("setCategory")} icon={"g"}>
+            Manage Category
+          </MenuItem>
+          <MenuItem onClick={() => setControl("makeBloodDonar")} icon={"g"}>
+            Make Blood Donar
+          </MenuItem>
+
+          <MenuItem onClick={() => setControl("bloodDonarList")} icon={"g"}>
+            Blood Donar list
+          </MenuItem>
         </Menu>
       </ProSidebar>
-      <div className="container text-center"></div>
+      <div className="container text-center mt-2">
+        {control === "pending" && <AppointmentsList></AppointmentsList>}
+        {control === "approved" && (
+          <ApporvedAppointments></ApporvedAppointments>
+        )}
+        {control === "done" && <DoneAppointments></DoneAppointments>}
+        {control === "makeDoctor" && <DoctorRegister></DoctorRegister>}
+        {control === "doctors" && <AllDoctors></AllDoctors>}
+        {control === "setCategory" && <ManageCategory></ManageCategory>}
+        {control === "makeAdmin" && <MakeAdmin></MakeAdmin>}
+        {control === "allCustomers" && <AllCustomer></AllCustomer>}
+        {control === "makeBloodDonar" && <MakeBloodDonar></MakeBloodDonar>}
+        {control === "bloodDonarList" && <BloodDoner></BloodDoner>}
+        {control === "AmbulanceRegister" && (
+          <AmbulanceRegister></AmbulanceRegister>
+        )}
+        {control === "AmbulanceList" && <AmbulanceService></AmbulanceService>}
+      </div>
     </div>
   );
 };

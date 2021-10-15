@@ -1,0 +1,16 @@
+.card {
+    width: 250px;
+    height: 42px;
+    text-align: center;
+    padding: 5px;
+  }
+  .card:hover {
+    border: 1px solid blue;
+  }
+  .pay-btn {
+    padding: 10px 40px;
+    background-color: rgb(236, 43, 172);
+    border: none;
+    color: white;
+    border-radius: 5px;
+  }

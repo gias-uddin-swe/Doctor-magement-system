@@ -4,7 +4,10 @@ import { useForm } from "react-hook-form";
 
 const SubmitPrescription = () => {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="mt-5">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -12,7 +15,7 @@ const SubmitPrescription = () => {
           className="input-field border border-none"
           name="prescription"
           type="file"
-          required
+          {...register("prescription", { required: false })}
         />
         <br />
         <input className="submit-btn" type="submit" value="Submit" />

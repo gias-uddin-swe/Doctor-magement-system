@@ -1,21 +1,22 @@
-.logo img{
-    width: 80px;
+.logo img {
+  width: 80px;
 }
-.menu-items li{
-    list-style: none;
-    color:  white;
-    font-size:20px;
-    font-weight: 300;
-    margin-right: 10px;
-    padding: 10px;
-    
-
+.menu-items li {
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  margin-right: 10px;
+  padding: 10px;
 }
-.menu-link{
-    text-decoration: none;
+.menu-link {
+  text-decoration: none;
 }
-.menu-container{
-    background-color:#8B8B8B;
-    /* position:fixed; */
+.menu-container {
+  background-color: #8b8b8b;
+  /* position:fixed; */
 }
 
+.menu-link:hover {
+  color: rgb(12, 12, 105);
+}
