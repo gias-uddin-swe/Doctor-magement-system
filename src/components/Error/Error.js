@@ -1,13 +1,14 @@
-import React from 'react';
-import './Error.css';
-
+import React from "react";
+import "./Error.css";
+import Footer from "./../Home/Footer/Footer";
 
 const Error = () => {
-    return (
-        <div className="error">
-            <h1> can not found Error 404!!</h1>
-        </div>
-    );
+  return (
+    <div className="error">
+      <img src="https://i.ibb.co/tYjLNxw/V1fUu.png" alt="" />
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default Error;

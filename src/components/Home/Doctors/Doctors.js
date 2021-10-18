@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Doctors.css";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,59 +12,30 @@ import {
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const Doctors = () => {
-  const fakeData = [
-    {
-      name: "Jmes leo",
-      role: "cardiologist",
-      available: "monday-friday",
-      phone: "0174514245",
-      chamber: "pabna",
-      youtube: "https://www.youtube.com",
-      email: "test@gmail.com",
-      instagram: "https://www.instagram.com",
-      facebook: "https://www.facebook.com",
-      image: "https://i.ibb.co/5sXbTNX/Doctor-162.jpg",
-    },
-    {
-      name: "Jmes leo",
-      role: "cardiologist",
-      available: "monday-friday",
-      phone: "0174514245",
-      chamber: "pabna",
-      youtube: "https://www.youtube.com",
-      email: "test@gmail.com",
-      instagram: "https://www.instagram.com",
-      facebook: "https://www.facebook.com",
-      image: "https://i.ibb.co/5sXbTNX/Doctor-162.jpg",
-    },
-    {
-      name: "Jmes leo",
-      role: "cardiologist",
-      available: "monday-friday",
-      phone: "0174514245",
-      chamber: "pabna",
-      email: "test@gmail.com",
-      instagram: "https://www.instagram.com",
-      facebook: "https://www.facebook.com",
-      youtube: "https://www.youtube.com",
-      image: "https://i.ibb.co/5sXbTNX/Doctor-162.jpg",
-    },
-  ];
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allDoctors")
+      .then((response) => response.json())
+      .then((result) => {
+        setDoctors(result.slice(0, 7));
+      });
+  }, []);
 
   return (
     <div className="container allDoctors">
       <h1 className="ourDoctors">Our Doctors</h1>
       <div className="row">
-        {fakeData.map((pd) => (
+        {doctors.map((pd) => (
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="doctor">
               <div className="doctor-image">
-                <img src="https://i.ibb.co/5sXbTNX/Doctor-162.jpg" alt="" />
+                <img src={pd.imageURL} alt="" />
               </div>
               <h6 className="mt-4">Name:{pd.name}</h6>
-              <h6>Experts: {pd.role}</h6>
               <h6>Chamber:{pd.chamber}</h6>
               <p>Phone:{pd.phone}</p>
+              <p>gender:{pd.gender}</p>
               <button className="btn btn-danger">Details</button>
               <div className="doctor-icon mt-3">
                 <p>

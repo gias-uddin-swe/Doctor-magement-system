@@ -17,6 +17,7 @@ import AmbulanceService from "./../../../AmbulanceService/AmbulanceService";
 
 const AdminDashboard = () => {
   const [control, setControl] = useState("pending");
+
   return (
     <div className="dashboard d-flex text-center">
       <ProSidebar>

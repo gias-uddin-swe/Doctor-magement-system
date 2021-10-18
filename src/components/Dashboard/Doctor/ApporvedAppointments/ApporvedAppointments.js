@@ -25,7 +25,7 @@ const ApporvedAppointments = () => {
 
   let count = 0;
 
-  const [optionValue, SetOptionValue] = useState("pending");
+  const [optionValue, SetOptionValue] = useState("approved");
   const handleSelectValue = (e) => {
     SetOptionValue(e.target.value);
   };
@@ -37,7 +37,7 @@ const ApporvedAppointments = () => {
     fetch(`http://localhost:5000/updateStatus/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ optionValue, meetLink, doctorEmail }),
+      body: JSON.stringify({ optionValue, meetLink }),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -77,7 +77,7 @@ const ApporvedAppointments = () => {
                   onChange={handleMeetLink}
                   className="p-2"
                   type="text"
-                  defaultValue={`${pd?.meetLink} || `}
+                  defaultValue={`${pd?.meetLink}`}
                   placeholder={`Live link`}
                 />
               </td>

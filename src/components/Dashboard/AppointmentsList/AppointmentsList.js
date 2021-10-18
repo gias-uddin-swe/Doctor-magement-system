@@ -19,7 +19,7 @@ const AppointmentsList = () => {
 
   let count = 0;
 
-  const [optionValue, SetOptionValue] = useState(null);
+  const [optionValue, SetOptionValue] = useState("pending");
   const handleSelectValue = (e) => {
     SetOptionValue(e.target.value);
   };

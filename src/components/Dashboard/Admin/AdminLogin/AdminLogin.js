@@ -5,9 +5,11 @@ import doctor from "../../../../images/logo/doctor-login.png";
 import Footer from "../../../Home/Footer/Footer";
 import { userContext } from "../../../../App";
 import { useHistory, useLocation } from "react-router";
+import useFirebase from "./../../../Hook/useFirebase";
 
 const AdminLogin = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const { googleSignIn } = useFirebase();
   const [isError, setIsError] = useState(false);
   const history = useHistory();
   const location = useLocation();
@@ -73,6 +75,9 @@ const AdminLogin = () => {
 
                   <input className="submit-btn" type="submit" value="Login" />
                 </form>
+                <button className="btn btn-warning mt-5" onClick={googleSignIn}>
+                  SignIn with Google
+                </button>
               </div>
             </div>
             <div className="col-md-6">

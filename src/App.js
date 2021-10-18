@@ -22,6 +22,8 @@ import ProcessPayment from "./components/Auth/PaymentGetWay/ProcessPayment";
 import AmbulanceService from "./components/AmbulanceService/AmbulanceService";
 import BloodDoner from "./components/Doner/BloodDoner";
 import AmbulanceRegister from "./components/AmbulanceService/AmbulanceRegister";
+import MainContact from "./components/MainContact/MainContact";
+import MainAbout from "./components/MainAbout/MainAbout";
 export const userContext = createContext();
 
 function App() {
@@ -55,6 +57,12 @@ function App() {
             </Route>
             <Route exact path="/home">
               <Home></Home>
+            </Route>
+            <Route exact path="/contact">
+              <MainContact></MainContact>
+            </Route>
+            <Route exact path="/about">
+              <MainAbout></MainAbout>
             </Route>
             <Route exact path="/login">
               <Login></Login>

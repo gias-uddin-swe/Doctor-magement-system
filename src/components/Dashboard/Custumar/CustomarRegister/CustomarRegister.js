@@ -3,8 +3,10 @@ import "./CustomarRegister.css";
 import { useForm } from "react-hook-form";
 import { userContext } from "../../../../App";
 import { useHistory, useLocation } from "react-router";
+import useFirebase from "./../../../Hook/useFirebase";
 
 const CustomarRegister = () => {
+  const { googleSignIn } = useFirebase();
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const { register, handleSubmit, watch, errors } = useForm();
   const history = useHistory();
@@ -77,6 +79,9 @@ const CustomarRegister = () => {
 
         <input className="submit-btn" type="submit" value="Register" />
       </form>
+      <button onClick={googleSignIn} className="btn btn-warning mt-3">
+        Sign in with Google
+      </button>
     </div>
   );
 };

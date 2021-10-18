@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "./../../../../App";
 import "./CustomerPending.css";
 
-const CustomerPending = () => {
+const CustomerPending = ({ status }) => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const [appointments, setAppointments] = useState([]);
   const email = sessionStorage.getItem("email");
@@ -10,7 +10,7 @@ const CustomerPending = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/customerPendingAppointments/${"approved"}/${email}`
+      `http://localhost:5000/customerPendingAppointments/${status}/${email}`
     )
       .then((res) => res.json())
       .then((result) => setAppointments(result));
@@ -24,29 +24,33 @@ const CustomerPending = () => {
         Total Pending Appointments{" "}
         <span className="text-danger">{appointments.length}</span>
       </h1>
-      {lastItem?.meetLink && (
-        <marquee
-          className="text-danger headline mt-4"
-          width="80%"
-          direction="left"
-          height="100px"
-        >
-          Hey You Got Doctor Appointment in Google Meet Link in below
-        </marquee>
+      {status === "approved" && (
+        <div>
+          {lastItem?.meetLink && (
+            <marquee
+              className="text-danger headline mt-4"
+              width="80%"
+              direction="left"
+              height="100px"
+            >
+              Hey You Got Doctor Appointment in Google Meet Link in below
+            </marquee>
+          )}
+          <div>
+            <button className="btn btn-info">
+              <a target="_blank" href={lastItem?.meetLink}>
+                Join Meet now
+              </a>
+            </button>
+          </div>
+          <p className="mt-3 bg-warning">
+            Meet Link :{" "}
+            <a target="_blank" href={lastItem?.meetLink}>
+              {lastItem?.meetLink}
+            </a>
+          </p>
+        </div>
       )}
-      <div>
-        <button className="btn btn-info">
-          <a target="_blank" href={lastItem?.meetLink}>
-            Join Meet now
-          </a>
-        </button>
-      </div>
-      <p className="mt-3 bg-warning">
-        Meet Link :{" "}
-        <a target="_blank" href={lastItem?.meetLink}>
-          {lastItem?.meetLink}
-        </a>
-      </p>
 
       {/* <a href={}></a> */}
       <div className="customer-appintments mt-3">

@@ -15,7 +15,7 @@ const DoneAppointments = () => {
 
   let count = 0;
 
-  const [optionValue, SetOptionValue] = useState(null);
+  const [optionValue, SetOptionValue] = useState("done");
   const handleSelectValue = (e) => {
     SetOptionValue(e.target.value);
   };
@@ -24,12 +24,12 @@ const DoneAppointments = () => {
     fetch(`http://localhost:5000/allAppointments/${"done"}`)
       .then((res) => res.json())
       .then((result) => setAppointments(result));
-  }, [AppointmentDelete]);
+  }, [AppointmentDelete, dependencies]);
   const handleEditSubmit = (id) => {
     fetch(`http://localhost:5000/updateStatus/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ optionValue, doctorEmail }),
+      body: JSON.stringify({ optionValue }),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -54,7 +54,6 @@ const DoneAppointments = () => {
             <th>#</th>
             <th>Name</th>
             <th>Phone</th>
-
             <th>problem Details</th>
             <th>Status</th>
             <th>Action</th>
@@ -75,6 +74,7 @@ const DoneAppointments = () => {
                     <option defaultValue="approved">approved</option>
                     <option defaultValue="processing">processing</option>
                     <option defaultValue="done">done</option>
+                    <option defaultValue="done">pending</option>
                   </select>
                   <input className="hideInput d-none" type="text" name="id" />
                 </form>

@@ -6,11 +6,12 @@ import doctor from "../../../../images/logo/doctor-login.png";
 import Footer from "../../../Home/Footer/Footer";
 import { userContext } from "../../../../App";
 import { useHistory, useLocation } from "react-router";
+import useFirebase from "./../../../Hook/useFirebase";
 
 const CustomarLogin = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const [isError, setIsError] = useState(false);
-
+  const { googleSignIn } = useFirebase();
   const history = useHistory();
   const location = useLocation();
   const redirect_url = location.state?.from || "home";
@@ -81,6 +82,9 @@ const CustomarLogin = () => {
 
                   <input className="submit-btn" type="submit" value="Login" />
                 </form>
+                <button onClick={googleSignIn} className="btn btn-warning">
+                  Sign in with Google
+                </button>
               </div>
             ) : (
               <CustomarRegister></CustomarRegister>

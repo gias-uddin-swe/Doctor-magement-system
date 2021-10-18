@@ -11,7 +11,7 @@ import CustomerDone from "./../CustomerDone/CustomerDone";
 import CustomerPending from "./../CustomerPending/CustomerPending";
 
 const CustomarDashboard = () => {
-  const [control, setControl] = useState("pending");
+  const [control, setControl] = useState("approved");
   return (
     <div className="dashboard d-flex text-center">
       <ProSidebar>
@@ -22,8 +22,11 @@ const CustomarDashboard = () => {
             <MenuItem onClick={() => setControl("myCart")}>
               My All Appointments
             </MenuItem>
-            <MenuItem onClick={() => setControl("pending")}>
+            <MenuItem onClick={() => setControl("approved")}>
               Pending Appointments
+            </MenuItem>
+            <MenuItem onClick={() => setControl("pending")}>
+              Check Appointment Status
             </MenuItem>
             <MenuItem onClick={() => setControl("done")}>
               Done Appointments
@@ -55,15 +58,25 @@ const CustomarDashboard = () => {
         </Menu>
       </ProSidebar>
       <div className="container text-center">
-        {control === "myCart" && <CustomerCarts></CustomerCarts>}
+        {control === "myCart" && (
+          <CustomerCarts status={control}></CustomerCarts>
+        )}
 
         {control === "ambulance" && <AmbulanceService></AmbulanceService>}
 
         {control === "getBlood" && <BloodDoner></BloodDoner>}
         {control === "donateBlood" && <MakeBloodDonar></MakeBloodDonar>}
 
-        {control === "done" && <CustomerDone></CustomerDone>}
-        {control === "pending" && <CustomerPending></CustomerPending>}
+        {/* {control === "done" && <CustomerDone></CustomerDone>} */}
+        {control === "approved" && (
+          <CustomerPending status={control}></CustomerPending>
+        )}
+        {control === "pending" && (
+          <CustomerPending status={control}></CustomerPending>
+        )}
+        {control === "done" && (
+          <CustomerPending status={control}></CustomerPending>
+        )}
       </div>
     </div>
   );
