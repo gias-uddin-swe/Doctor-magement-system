@@ -12,7 +12,9 @@ const ActiveDoctor = () => {
   const status = "online";
 
   useEffect(() => {
-    fetch(`http://localhost:5000/activeDoctors/${issue}/${status}`)
+    fetch(
+      `https://radiant-falls-78336.herokuapp.com/activeDoctors/${issue}/${status}`
+    )
       .then((response) => response.json())
       .then((result) => setDoctors(result));
   }, []);

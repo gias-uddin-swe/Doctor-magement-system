@@ -9,7 +9,7 @@ const AllDoctors = () => {
   const { handleDeleteAppointment, AppointmentDelete } = useDelete();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allDoctors/`)
+    fetch(`https://radiant-falls-78336.herokuapp.com/allDoctors/`)
       .then((res) => res.json())
       .then((result) => setdoctors(result));
   }, [AppointmentDelete, dependencies]);
@@ -23,7 +23,7 @@ const AllDoctors = () => {
   console.log(optionValue);
 
   //   const handleEditSubmit = (id) => {
-  //     fetch(`http://localhost:5000/updateStatus/${id}`, {
+  //     fetch(`https://radiant-falls-78336.herokuapp.com/updateStatus/${id}`, {
   //       method: "PATCH",
   //       headers: { "Content-Type": "application/json" },
   //       body: JSON.stringify({ optionValue }),

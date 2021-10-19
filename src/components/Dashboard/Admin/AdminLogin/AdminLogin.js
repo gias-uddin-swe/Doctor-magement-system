@@ -16,7 +16,7 @@ const AdminLogin = () => {
   const redirect_url = location.state?.from || "home";
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/adminLogin", {
+    fetch("https://radiant-falls-78336.herokuapp.com/adminLogin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

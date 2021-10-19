@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 const AmbulanceRegister = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/AmbulanceRegister", {
+    fetch("https://radiant-falls-78336.herokuapp.com/AmbulanceRegister", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

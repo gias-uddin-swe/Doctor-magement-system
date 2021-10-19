@@ -21,12 +21,12 @@ const DoneAppointments = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allAppointments/${"done"}`)
+    fetch(`https://radiant-falls-78336.herokuapp.com/allAppointments/${"done"}`)
       .then((res) => res.json())
       .then((result) => setAppointments(result));
   }, [AppointmentDelete, dependencies]);
   const handleEditSubmit = (id) => {
-    fetch(`http://localhost:5000/updateStatus/${id}`, {
+    fetch(`https://radiant-falls-78336.herokuapp.com/updateStatus/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ optionValue }),

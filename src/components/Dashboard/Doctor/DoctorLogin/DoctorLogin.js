@@ -15,7 +15,7 @@ const DoctorLogin = () => {
   const location = useLocation();
   const redirect_url = location.state?.from || "home";
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/doctorLogin", {
+    fetch("https://radiant-falls-78336.herokuapp.com/doctorLogin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

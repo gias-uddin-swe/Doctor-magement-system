@@ -20,7 +20,7 @@ const ApplyAppointment = () => {
     data.paymentSuccess = loggedInUser.paymentSuccess;
     data.status = "pending";
     console.log(data);
-    fetch("http://localhost:5000/appointments", {
+    fetch("https://radiant-falls-78336.herokuapp.com/appointments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

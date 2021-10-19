@@ -16,7 +16,9 @@ const ApporvedAppointments = () => {
   const [meetLink, setMeetLink] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allAppointments/${"approved"}`)
+    fetch(
+      `https://radiant-falls-78336.herokuapp.com/allAppointments/${"approved"}`
+    )
       .then((res) => res.json())
       .then((result) => setAppointments(result));
   }, [AppointmentDelete, dependencies]);
@@ -34,7 +36,7 @@ const ApporvedAppointments = () => {
   };
 
   const handleEditSubmit = (id) => {
-    fetch(`http://localhost:5000/updateStatus/${id}`, {
+    fetch(`https://radiant-falls-78336.herokuapp.com/updateStatus/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ optionValue, meetLink }),

@@ -11,7 +11,7 @@ const MakeAdmin = () => {
   const redirect_url = location.state?.from || "home";
   const onSubmit = (data) => {
     data.role = "admin";
-    fetch("http://localhost:5000/makeAdmin", {
+    fetch("https://radiant-falls-78336.herokuapp.com/makeAdmin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

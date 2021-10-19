@@ -6,10 +6,10 @@ const ManageCategory = () => {
   const [category, setCategory] = useState("");
 
   const handelSubmitCategory = () => {
-    fetch("http://localhost:5000/setCategory", {
+    fetch("https://radiant-falls-78336.herokuapp.com/setCategory", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({category}),
+      body: JSON.stringify({ category }),
     })
       .then((res) => res.json())
       .then((result) => {

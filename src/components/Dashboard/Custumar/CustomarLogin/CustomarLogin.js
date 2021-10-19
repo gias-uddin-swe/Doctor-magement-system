@@ -17,7 +17,7 @@ const CustomarLogin = () => {
   const redirect_url = location.state?.from || "home";
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/patientLogin", {
+    fetch("https://radiant-falls-78336.herokuapp.com/patientLogin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

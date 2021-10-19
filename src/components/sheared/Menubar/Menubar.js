@@ -25,7 +25,7 @@ const Menubar = () => {
   const email = sessionStorage.getItem("email");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/isUserAdmin/${email}`)
+    fetch(`https://radiant-falls-78336.herokuapp.com/isUserAdmin/${email}`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -35,10 +35,10 @@ const Menubar = () => {
           setIsUser("");
         }
       });
-  }, [email]);
-  const redireact = () => {
-    history.push("/home");
-  };
+  }, []);
+  // const redireact = () => {
+  //   history.push("/home");
+  // };
   return (
     <div className="menu-parent">
       <div className="row menu-container">

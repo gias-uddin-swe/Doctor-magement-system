@@ -19,7 +19,7 @@ const DoctorRegister = () => {
     data.activity = "online";
     data.role = "doctor";
 
-    fetch("http://localhost:5000/addDoctors", {
+    fetch("https://radiant-falls-78336.herokuapp.com/addDoctors", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
