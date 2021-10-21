@@ -6,7 +6,7 @@ const ManageCategory = () => {
   const [category, setCategory] = useState("");
 
   const handelSubmitCategory = () => {
-    fetch("https://radiant-falls-78336.herokuapp.com/setCategory", {
+    fetch("http://localhost:5000/setCategory", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ category }),

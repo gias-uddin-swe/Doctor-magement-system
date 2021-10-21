@@ -6,7 +6,7 @@ const useUser = () => {
   const allDoner = (doner) => {
     console.log(doner);
 
-    fetch(`https://radiant-falls-78336.herokuapp.com/allDonar`)
+    fetch(`http://localhost:5000/allDonar`)
       .then((res) => res.json())
       .then((result) => setDoner(result));
   };

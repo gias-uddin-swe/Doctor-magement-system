@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 
 const MakeBloodDonar = () => {
   const { register, handleSubmit, watch, errors } = useForm();
+  const email = sessionStorage.getItem("email");
   const onSubmit = (data) => {
-    fetch("https://radiant-falls-78336.herokuapp.com/bloodDonarInfo", {
+    data.email = email;
+    fetch("http://localhost:5000/bloodDonarInfo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -28,7 +30,7 @@ const MakeBloodDonar = () => {
         <input
           className="input-field"
           name="email"
-          placeholder="Email"
+          value={`${email}`}
           type="email"
           {...register("email", { required: true })}
         />

@@ -73,6 +73,9 @@ function App() {
             <PrivateRoute exact path="/adminDashboard">
               <AdminDashboard></AdminDashboard>
             </PrivateRoute>
+            {/* <Route exact path="/adminDashboard">
+              <AdminDashboard></AdminDashboard>
+            </Route> */}
             <PrivateRoute exact path="/doctorsDashboard">
               <DoctorDashboard></DoctorDashboard>
             </PrivateRoute>

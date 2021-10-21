@@ -6,7 +6,7 @@ const AllCustomer = () => {
   const [customers, setCustomers] = useState([]);
   const { handleDeleteAppointment, AppointmentDelete } = useDelete();
   useEffect(() => {
-    fetch("https://radiant-falls-78336.herokuapp.com/allCustomers")
+    fetch("http://localhost:5000/allCustomers")
       .then((response) => response.json())
       .then((result) => setCustomers(result));
   }, [AppointmentDelete]);

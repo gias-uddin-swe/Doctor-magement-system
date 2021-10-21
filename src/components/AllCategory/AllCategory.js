@@ -7,7 +7,7 @@ const AllCategory = () => {
   const [problems, setProblmes] = useState([]);
 
   useEffect(() => {
-    fetch("https://radiant-falls-78336.herokuapp.com/allCategory")
+    fetch("http://localhost:5000/allCategory")
       .then((response) => response.json())
       .then((result) => setProblmes(result));
   }, []);

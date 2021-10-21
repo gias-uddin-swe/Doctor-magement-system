@@ -10,7 +10,7 @@ const CustomerDone = () => {
 
   useEffect(() => {
     fetch(
-      `https://radiant-falls-78336.herokuapp.com/customerPendingAppointments/${"done"}/${email}`
+      `http://localhost:5000/customerPendingAppointments/${"done"}/${email}`
     )
       .then((res) => res.json())
       .then((result) => setAppointments(result));

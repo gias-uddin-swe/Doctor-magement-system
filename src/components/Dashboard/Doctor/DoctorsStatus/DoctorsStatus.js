@@ -5,14 +5,11 @@ const DoctorsStatus = () => {
   const [status, setStatus] = useState("");
   const email = sessionStorage.getItem("email");
   const handleEditSubmit = () => {
-    fetch(
-      `https://radiant-falls-78336.herokuapp.com/updateDoctorStatus/${email}`,
-      {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status }),
-      }
-    )
+    fetch(`http://localhost:5000/updateDoctorStatus/${email}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status }),
+    })
       .then((res) => res.json())
       .then((result) => {
         if (result) {

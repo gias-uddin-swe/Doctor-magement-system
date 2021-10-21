@@ -19,7 +19,7 @@ const DoctorRegister = () => {
     data.activity = "online";
     data.role = "doctor";
 
-    fetch("https://radiant-falls-78336.herokuapp.com/addDoctors", {
+    fetch("http://localhost:5000/addDoctors", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -110,6 +110,14 @@ const DoctorRegister = () => {
           type="text"
           placeholder="Chamber"
           {...register("chamber", { required: true })}
+        />
+        <br />
+        <input
+          className="input-field"
+          name="password"
+          type="password"
+          placeholder="password"
+          {...register("password", { required: true })}
         />
         <br />
         <select

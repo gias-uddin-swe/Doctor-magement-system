@@ -9,9 +9,7 @@ const CustomerCarts = () => {
   console.log(appointments);
 
   useEffect(() => {
-    fetch(
-      `https://radiant-falls-78336.herokuapp.com/customerAppointments/${email}`
-    )
+    fetch(`http://localhost:5000/customerAppointments/${email}`)
       .then((res) => res.json())
       .then((result) => setAppointments(result));
   }, [email]);
