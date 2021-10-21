@@ -66,11 +66,11 @@ const Menubar = () => {
                 <li className="menu-link">Dashboard</li>
               </Link>
             )}
-
-            <Link className="menu-link" to="/adminDashboard">
-              <li className="menu-link">Dashboard</li>
-            </Link>
-
+            {isUser === "admin" && (
+              <Link className="menu-link" to="/adminDashboard">
+                <li className="menu-link">Dashboard</li>
+              </Link>
+            )}
             <Link className="menu-link" to="/contact">
               <li className="menu-link">Contact</li>
             </Link>
