@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import "./ApporvedAppointments.css";
 
+import Swal from "sweetalert2";
+
 import { useForm } from "react-hook-form";
 import { userContext } from "./../../../../App";
 import useDelete from "../../../Hook/useDelete";
@@ -43,6 +45,7 @@ const ApporvedAppointments = () => {
       .then((result) => {
         if (result) {
           console.log(result);
+          Swal.fire("The Internet?", "That thing is still around?", "question");
           setDependencies(true);
           const userInfo = { ...loggedInUser };
           userInfo.meetLink = meetLink;

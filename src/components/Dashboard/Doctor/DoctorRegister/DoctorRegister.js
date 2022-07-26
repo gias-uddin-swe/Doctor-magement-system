@@ -18,6 +18,7 @@ const DoctorRegister = () => {
     data.imageURL = imageURL;
     data.activity = "online";
     data.role = "doctor";
+    console.log(data);
 
     fetch("http://localhost:5000/addDoctors", {
       method: "POST",
@@ -27,6 +28,7 @@ const DoctorRegister = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result) {
+          console.log(result);
           setEmail(data.email);
           const userInfo = { ...loggedInUser };
           userInfo.email = data.email;

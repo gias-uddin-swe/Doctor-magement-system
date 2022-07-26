@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./AppointmentsList.css";
 import { Table } from "react-bootstrap";
-
+import { Line, Circle } from "rc-progress";
+import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useDelete from "./../../Hook/useDelete";
 
@@ -17,7 +18,7 @@ const AppointmentsList = () => {
       .then((result) => setAppointments(result));
   }, [AppointmentDelete, dependencies]);
 
-  let count = 0;
+  let count = 50;
 
   const [optionValue, SetOptionValue] = useState("pending");
   const handleSelectValue = (e) => {
@@ -34,6 +35,7 @@ const AppointmentsList = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result) {
+          Swal.fire("ok cool you did it ", "good Job");
           console.log(result);
           setDependencies(true);
         }
@@ -43,6 +45,7 @@ const AppointmentsList = () => {
   return (
     <div>
       <h1>ALl Appointments {appointments.length}</h1>
+
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -89,7 +92,9 @@ const AppointmentsList = () => {
           </tbody>
         ))}
       </Table>
-      <ul></ul>
+      <div className="cercle w-25 m-auto">
+        <Circle percent={count} strokeWidth="3" strokeColor="green" />;
+      </div>
     </div>
   );
 };

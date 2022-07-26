@@ -24,6 +24,9 @@ import BloodDoner from "./components/Doner/BloodDoner";
 import AmbulanceRegister from "./components/AmbulanceService/AmbulanceRegister";
 import MainContact from "./components/MainContact/MainContact";
 import MainAbout from "./components/MainAbout/MainAbout";
+import Camera from "./components/sheared/Camera/Camera";
+import Preloader from "./components/Preloader/Preloader";
+import Doctors from "./components/Home/Doctors/Doctors";
 export const userContext = createContext();
 
 function App() {
@@ -58,6 +61,9 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
+            {/* <Route exact path="/preloader">
+              <Preloader></Preloader>
+            </Route> */}
             <Route exact path="/contact">
               <MainContact></MainContact>
             </Route>
@@ -97,6 +103,9 @@ function App() {
             <Route exact path="/cart">
               <CustomerCarts></CustomerCarts>
             </Route>
+            {/* <Route exact path="/camera">
+              <Camera></Camera>
+            </Route> */}
             <Route exact path="/activeDoctor/:issue">
               <ActiveDoctor></ActiveDoctor>
             </Route>
@@ -108,6 +117,9 @@ function App() {
             </Route>
             <Route path="/bloodDonar">
               <BloodDoner></BloodDoner>
+            </Route>
+            <Route path="/doctors">
+              <Doctors></Doctors>
             </Route>
             <Route path="/AmbulanceRegister">
               <AmbulanceRegister></AmbulanceRegister>

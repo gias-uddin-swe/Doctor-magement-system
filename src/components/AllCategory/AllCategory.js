@@ -9,7 +9,10 @@ const AllCategory = () => {
   useEffect(() => {
     fetch("http://localhost:5000/allCategory")
       .then((response) => response.json())
-      .then((result) => setProblmes(result));
+      .then((result) => {
+        setProblmes(result);
+        console.log(result);
+      });
   }, []);
 
   return (

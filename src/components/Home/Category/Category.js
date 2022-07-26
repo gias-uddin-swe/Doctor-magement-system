@@ -8,7 +8,10 @@ const Category = () => {
       "https://raw.githubusercontent.com/gias-uddin-swe/dcotor-fakeData/main/faakedata.json"
     )
       .then((res) => res.json())
-      .then((result) => setProducts(result));
+      .then((result) => {
+        console.log(result);
+        setProducts(result);
+      });
   }, []);
   return (
     <div className="Category p-5 container">

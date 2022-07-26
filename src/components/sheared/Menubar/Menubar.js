@@ -25,17 +25,20 @@ const Menubar = () => {
   const email = sessionStorage.getItem("email");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/isUserAdmin/${email}`)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        if (result) {
-          setIsUser(result.role);
-        } else {
-          setIsUser("");
-        }
-      });
-  }, []);
+    if (email) {
+      fetch(`http://localhost:5000/isUserAdmin/${email}`)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          if (result) {
+            setIsUser(result.role);
+          } else {
+            setIsUser("");
+          }
+        });
+    }
+  }, [email]);
+
   // const redireact = () => {
   //   history.push("/home");
   // };
