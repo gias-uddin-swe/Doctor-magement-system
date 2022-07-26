@@ -1,4 +1,4 @@
-#ONline Doctor Management System
+# Online Doctor Management System
 
 LIve link  [Click here](https://thirsty-murdock-bba58f.netlify.app/).
 
